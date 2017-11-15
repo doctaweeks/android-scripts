@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <apk>"
+	exit 1
+fi
+
+APK=$1
+
+KEY_PATH=$HOME/.android-certs
+KEY_NAME=releasekey
+
+KEY=$KEY_PATH/$KEY_NAME.pk8
+CERT=$KEY_PATH/$KEY_NAME.x509.pem
+
+WORKDIR=`dirname $APK`
+OUT_NAME=`basename $APK | sed 's/\(\.[^.]*\)$/-signed\1/'`
+OUT=$WORKDIR/$OUT_NAME
+
+echo $KEY $CERT $APK
+echo $OUT
+apksigner sign --key $KEY --cert $CERT --verbose --out $OUT $APK
