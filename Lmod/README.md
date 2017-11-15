@@ -2,10 +2,10 @@
 set of Lua modulefiles for Lmod that are useful when working with Android.
 
 ###### android
-Sets ANDROID_HOME and adds platform tools to the PATH.
+Sets `ANDROID_HOME` and adds platform tools to the PATH.
 
 ###### android-build-tools
-Adds selected version of build tools to the PATH. Uses the ANDROID_HOME
+Adds selected version of build tools to the PATH. Uses the `ANDROID_HOME`
 environment variable, set manually or by the android module.
 
 Best setup as a hidden file in an android-build-tools subdirectory with
