@@ -17,6 +17,6 @@ WORKDIR=`dirname $APK`
 OUT_NAME=`basename $APK | sed 's/\(\.[^.]*\)$/-signed\1/'`
 OUT=$WORKDIR/$OUT_NAME
 
-echo $KEY $CERT $APK
-echo $OUT
 apksigner sign --key $KEY --cert $CERT --verbose --out $OUT $APK
+
+echo "Signed: $OUT"
